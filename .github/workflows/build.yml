@@ -1,1 +1,33 @@
+name: SonarCloud
+
+on:
+  push:
+    branches:
+      - main  # ou master selon ta branche
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonar:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Comme tu n'as pas de requirements.txt, on peut ignorer cette étape
+      #- name: Install dependencies
+      #  run: pip install -r requirements.txt || echo "No requirements file"
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ 6af61d83ed3e0a4a97b05779954134d3ca0dc1d3 }}
+          SONAR_PROJECT_KEY: "ihssane2002"
+          SONAR_ORGANIZATION: " ihssane bammad"
 
