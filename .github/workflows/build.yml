@@ -27,7 +27,7 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          SONAR_TOKEN: ${{ 6af61d83ed3e0a4a97b05779954134d3ca0dc1d3 }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
           SONAR_PROJECT_KEY: "ihssane2002"
           SONAR_ORGANIZATION: " ihssane bammad"
 
